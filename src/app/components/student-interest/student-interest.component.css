@@ -1,0 +1,88 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 22px; /* Reduced size */
+    margin-bottom: 20px;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Reduced gap */
+    margin-bottom: 20px;
+  }
+  
+  .interest-button button {
+    background-color: #f5f5f5;
+    border: 2px solid #ccc;
+    border-radius: 15px; /* Adjusted border-radius */
+    padding: 8px 15px; /* Reduced padding */
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .interest-button button:hover {
+    background-color: #3180f6; /* Updated hover color */
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .interest-button button.selected {
+    background-color: #076aff;
+    color: white;
+    border-color: #073dff;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+  }
+  
+  button[type="submit"] {
+    background-color: #3180f6;
+    color: white;
+    padding: 10px 25px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px; /* Reduced font size */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #073dff;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    .interest-button button {
+      font-size: 12px; /* Smaller font for mobile */
+      padding: 6px 12px; /* Smaller padding */
+    }
+  
+    button[type="submit"] {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+  

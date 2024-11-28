@@ -1,0 +1,69 @@
+ /*--------------------------------------------------------------
+  # Team 2 Section
+  --------------------------------------------------------------*/
+  .team-2 {
+    --default-color: #ffffff;
+  }
+  
+  .team-2 .member {
+    text-align: center;
+    position: relative;
+    height: 100%;
+  }
+  
+  .team-2 .member .member-info {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    transition: 0.2s;
+  }
+  
+  .team-2 .member .member-info-content {
+    margin-top: -50px;
+    transition: margin 0.2s;
+  }
+  
+  .team-2 .member:hover .member-info {
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+    transition: 0.4s;
+  }
+  
+  .team-2 .member:hover .member-info-content {
+    margin-top: 0;
+    transition: margin 0.4s;
+  }
+  
+  .team-2 .member h4 {
+    color: var(--contrast-color);
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 18px;
+  }
+  
+  .team-2 .member span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+  }
+  
+  .team-2 .member .social {
+    margin-top: 15px;
+  }
+  
+  .team-2 .member .social a {
+    transition: 0.3s;
+    color: var(--default-color);
+  }
+  
+  .team-2 .member .social a:hover {
+    color: var(--accent-color);
+  }
+  
+  .team-2 .member .social i {
+    font-size: 18px;
+    margin: 0 2px;
+  }

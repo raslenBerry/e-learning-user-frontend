@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Select Your Interests</h2>
+    <form (ngSubmit)="onSubmit()" #interestsForm="ngForm">
+      <div class="button-group">
+        <div *ngFor="let interest of interests; let i = index" class="interest-button">
+          <button 
+            type="button" 
+            [class.selected]="selectedInterests[i]" 
+            (click)="toggleInterest(i)" 
+            [disabled]="isLimitReached() && !selectedInterests[i]">
+            {{ interest }}
+          </button>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="isSubmitDisabled()">
+        Submit Interests
+      </button>
+    </form>
+  </div>
+  

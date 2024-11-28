@@ -1,0 +1,60 @@
+<section class="h-100 gradient-form register-section">
+
+
+
+    <!-- Google Sign-In Button -->
+  
+  
+  
+    <div class="container-fluid py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form [formGroup]="moreinfos" (ngSubmit)="onSubmit()">
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start mb-4">
+              <p class="lead fw-normal mb-0 me-3">Sign up as</p>
+              <div class="role-buttons">
+                <button type="button" class="btn btn-success" [class.active]="selectedRole === 'STUDENT'" (click)="selectRole('STUDENT')">Student</button>
+                <button type="button" class="btn btn-success" [class.active]="selectedRole === 'TRAINER'" (click)="selectRole('TRAINER')">Trainer</button>
+              </div>
+            </div>
+  
+            <div class="row">
+             
+  
+              <div class="col-md-6">
+                <input type="text" formControlName="phoneNumber" placeholder="Phone Number" required>
+                <div *ngIf="moreinfos.get('phoneNumber')?.invalid && moreinfos.get('phoneNumber')?.touched" class="error">Valid phone number is required</div>
+  
+                <div *ngIf="selectedRole === 'STUDENT'">
+                  <input type="text" formControlName="universityName" placeholder="University Name">
+                  <div *ngIf="moreinfos.get('universityName')?.invalid && moreinfos.get('universityName')?.touched" class="error">University Name is required</div>
+  
+                  <input type="text" formControlName="fieldOfStudy" placeholder="Field of Study">
+                  <div *ngIf="moreinfos.get('fieldOfStudy')?.invalid && moreinfos.get('fieldOfStudy')?.touched" class="error">Field of Study is required</div>
+  
+                  <input type="text" formControlName="level" placeholder="Level">
+                  <div *ngIf="moreinfos.get('level')?.invalid && moreinfos.get('level')?.touched" class="error">Level is required</div>
+                </div>
+  
+                <div *ngIf="selectedRole === 'TRAINER'">
+                  <input type="text" formControlName="speciality" placeholder="Speciality">
+                  <div *ngIf="moreinfos.get('speciality')?.invalid && moreinfos.get('speciality')?.touched" class="error">Speciality is required</div>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-primary btn-lg" [disabled]="moreinfos.invalid" style="padding-left: 2.5rem; padding-right: 2.5rem;">Validate</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  

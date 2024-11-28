@@ -1,0 +1,42 @@
+  /* Reset password link styling */
+  .reset-password a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+  
+
+  .reset-password a:hover {
+    text-decoration: underline;
+  }
+  
+
+  /* Style for the login title */
+h2 {
+    font-family: 'Arial', sans-serif; /* Use your preferred font */
+    font-size: 2.5rem;  /* Size of the title */
+    font-weight: bold;  /* Make the title bold */
+    text-align: center;  /* Center-align the title */
+    color: #333;  /* Set color of the title */
+    margin-bottom: 1.5rem;  /* Space below the title */
+    text-transform: uppercase; /* Optional: make the text uppercase */
+    letter-spacing: 1px;  /* Optional: increase space between letters */
+  }
+  
+  
+.google-signin-container {
+  margin: 20px 0;
+  position: relative;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
