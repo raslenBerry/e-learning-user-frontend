@@ -1,0 +1,210 @@
+/*--------------------------------------------------------------
+  # Portfolio Section
+  --------------------------------------------------------------*/
+  .courses .courses-filters {
+    padding: 0;
+    margin: 0 auto 20px auto;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .courses .courses-filters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 20px 10px 20px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    font-family: var(--heading-font);
+  }
+  
+  .courses .courses-filters li:hover,
+  .courses .courses-filters li.filter-active {
+    color: var(--contrast-color);
+    background-color: var(--accent-color);
+  }
+  
+  .courses .courses-filters li:first-child {
+    margin-left: 0;
+  }
+  
+  .courses .courses-filters li:last-child {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 575px) {
+    .courses .courses-filters li {
+      font-size: 14px;
+      margin: 0 0 10px 0;
+    }
+  }
+  
+  .courses .courses-item {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .courses .courses-item .courses-info {
+    opacity: 0;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: -100%;
+    z-index: 3;
+    transition: all ease-in-out 0.5s;
+    background: color-mix(in srgb, var(--surface-color), transparent 10%);
+    padding: 15px;
+  }
+  
+  .courses .courses-item .courses-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 50px;
+  }
+  
+  .courses .courses-item .courses-info p {
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-right: 50px;
+  }
+  
+  .courses .courses-item .courses-info .preview-link,
+  .courses .courses-item .courses-info .details-link {
+    position: absolute;
+    right: 50px;
+    font-size: 24px;
+    top: calc(50% - 14px);
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    transition: 0.3s;
+    line-height: 0;
+  }
+  
+  .courses .courses-item .courses-info .preview-link:hover,
+  .courses .courses-item .courses-info .details-link:hover {
+    color: var(--accent-color);
+  }
+  
+  .courses .courses-item .courses-info .details-link {
+    right: 14px;
+    font-size: 28px;
+  }
+  
+  .courses .courses-item:hover .courses-info {
+    opacity: 1;
+    bottom: 0;
+  }
+  
+  /*--------------------------------------------------------------
+    # Courses Details Section
+    --------------------------------------------------------------*/
+  .courses-details .courses-details-slider img {
+    width: 100%;
+  }
+  
+  .courses-details .swiper-wrapper {
+    height: auto;
+  }
+  
+  .courses-details .swiper-button-prev,
+  .courses-details .swiper-button-next {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .courses-details .swiper-button-prev:after,
+  .courses-details .swiper-button-next:after {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.15);
+    font-size: 24px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+  }
+  
+  .courses-details .swiper-button-prev:hover:after,
+  .courses-details .swiper-button-next:hover:after {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 575px) {
+    .courses-details .swiper-button-prev,
+    .courses-details .swiper-button-next {
+      display: none;
+    }
+  }
+  
+  .courses-details .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  .courses-details .swiper-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+    opacity: 1;
+  }
+  
+  .courses-details .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: var(--accent-color);
+  }
+  
+  .courses-details .courses-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .courses-details .courses-info h3:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    left: 0;
+    bottom: 0;
+  }
+  
+  .courses-details .courses-info ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+  }
+  
+  .courses-details .courses-info ul li {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
+  
+  .courses-details .courses-info ul strong {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: color-mix(in srgb, var(--default-color), transparent 50%);
+    font-size: 14px;
+  }
+  
+  .courses-details .courses-info .btn-visit {
+    padding: 8px 40px;
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    border-radius: 50px;
+    transition: 0.3s;
+  }
+  
+  .courses-details .courses-info .btn-visit:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  }
+  

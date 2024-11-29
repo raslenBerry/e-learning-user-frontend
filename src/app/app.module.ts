@@ -23,13 +23,13 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OurServicesComponent } from './components/our-services/our-services.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { CallToActionComponent } from './components/call-to-action/call-to-action.component';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { TeamComponent } from './components/team/team.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MoreInfosComponent } from './components/moreinfos/moreinfos.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 @NgModule({
   declarations: [
@@ -49,13 +49,13 @@ import { MoreInfosComponent } from './components/moreinfos/moreinfos.component';
     OurServicesComponent,
     FeaturesComponent,
     CallToActionComponent,
-    PortfolioComponent,
     PricingComponent,
     FaqComponent,
     TeachersComponent,
     TeamComponent,
     ContactComponent,
-    MoreInfosComponent
+    MoreInfosComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,

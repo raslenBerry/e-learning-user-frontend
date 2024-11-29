@@ -10,6 +10,7 @@ import { LoginRegisterComponent } from './components/loginregister/loginregister
 import { StudentInterestComponent } from './components/student-interest/student-interest.component';
 import { MoreInfosComponent } from './components/moreinfos/moreinfos.component';
 import { TrainerHomeComponent } from './components/trainer-home/trainer-home.component';
+import { CoursesComponent } from './components/courses/courses.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'interest' , component: StudentInterestComponent},
   {path: 'trainer-home' , component: TrainerHomeComponent},
   {path:'moreinfos',component: MoreInfosComponent},
+  {path:'courses',component:CoursesComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 
   { path: '**', redirectTo: '/login' } 
