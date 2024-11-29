@@ -1,1 +1,114 @@
-<p>trainer-home works!</p>
+<app-trainer-header></app-trainer-header>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h2>Manage <b>Courses</b></h2>
+            </div>
+            <div class="col-sm-6">
+              <div class="search-box">
+                <div class="input-group">
+                 <!-- Add the search input field -->
+                    <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search by course name or field"
+                    [(ngModel)]="searchTerm"
+                    (input)="searchCourses(searchTerm)"
+                    name="search"
+                    id="search"
+                    autocomplete="off"
+                    />
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Field</th>
+              <th>Accepted</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of courses">
+              <td><img [src]="course.image" alt="Course Image" style="max-width: 100px; max-height: 100px;"></td>
+              <td>{{ course.name }}</td>
+              <td>{{ course.description }}</td>
+              <td>{{ course.field }}</td>
+              <td>{{ course.accepted }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteCourse(course.courseId)">
+                  <i class="fa fa-trash"></i> Delete
+                </button>
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="displayUpdate(course)">
+                  <i class="fa fa-edit"></i> Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <!-- Modal for updating course -->
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Update Course</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form (ngSubmit)="updateCourse(updateForm)" #updateForm="ngForm">
+                  <div class="form-group">
+                    <label for="courseName">Name</label>
+                    <input type="text" id="courseName" [(ngModel)]="editedCourse.name" name="name" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="courseDescription">Description</label>
+                    <textarea id="courseDescription" [(ngModel)]="editedCourse.description" name="description" class="form-control" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="courseField">Field</label>
+                    <input type="text" id="courseField" [(ngModel)]="editedCourse.field" name="field" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="courseTrainer">Trainer</label>
+                    <input type="text" id="courseTrainer" [(ngModel)]="editedCourse.trainerId" name="trainerId" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="courseImage">Image</label>
+                    <input type="file" id="courseImage" [(ngModel)]="editedCourse.image" name="image" class="form-control-file">
+                  </div>
+                  <div class="form-group">
+                    <label for="courseAccepted">Accepted</label>
+                    <input type="text" id="courseAccepted" [(ngModel)]="editedCourse.accepted" name="accepted" class="form-control" required>
+                  </div>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-success">Update</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+

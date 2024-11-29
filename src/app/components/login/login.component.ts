@@ -103,6 +103,8 @@ export class LoginComponent implements OnInit {
           
           // Check user role and navigate accordingly
           const role = res.user?.role;
+          const id = res.id?.id;
+          localStorage.setItem('id',id);
           if (role === 'STUDENT') {
             this.router.navigate(['/home']);
           } else if (role === 'TRAINER') {
@@ -133,14 +135,14 @@ onSubmit(): void {
       (response) => {
         this.toastr.success('Login successful!', 'Success');
 
-        // Stockage du token
+        // Store the token and userId
         const token = response.token;
+        const userId = response.userId; // Retrieve userId from the response
         localStorage.setItem('token', token);
+        localStorage.setItem('userId', userId); // Save userId in localStorage
 
-        // Vérifiez le rôle directement dans la réponse
+        // Handle the role and navigate based on it
         const role = response.role;
-        console.log(role) // Récupérez le rôle ici
-
         if (role) {
           switch (role) {
             case 'STUDENT':
@@ -178,6 +180,7 @@ onSubmit(): void {
     );
   }
 }
+
 
   blockLogin(): void {
     this.isLoginDisabled = true;

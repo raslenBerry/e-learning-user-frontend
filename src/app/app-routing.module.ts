@@ -11,6 +11,7 @@ import { StudentInterestComponent } from './components/student-interest/student-
 import { MoreInfosComponent } from './components/moreinfos/moreinfos.component';
 import { TrainerHomeComponent } from './components/trainer-home/trainer-home.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { ManageCoursesTrainerComponent } from './components/manage-courses-trainer/manage-courses-trainer.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'trainer-home' , component: TrainerHomeComponent},
   {path:'moreinfos',component: MoreInfosComponent},
   {path:'courses',component:CoursesComponent},
+  {path:'managecourses',component:ManageCoursesTrainerComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 
   { path: '**', redirectTo: '/login' } 

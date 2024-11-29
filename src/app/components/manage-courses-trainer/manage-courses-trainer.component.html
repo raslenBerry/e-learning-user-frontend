@@ -1,0 +1,58 @@
+
+
+
+  <app-trainer-header></app-trainer-header>
+
+  <div class="form-container">
+      <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+        <h2 class="form-title">Add Course</h2>
+    
+        <div class="form-group">
+          <label for="name">Course Name</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="Enter course name"
+            required
+          />
+        </div>
+    
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            placeholder="Enter course description"
+            required
+          ></textarea>
+        </div>
+    
+        <div class="form-group">
+          <label for="field">Field</label>
+          <input
+            id="field"
+            type="text"
+            formControlName="field"
+            placeholder="Enter field of study"
+            required
+          />
+        </div>
+    
+        <div class="form-group">
+          <label for="image">Image URL</label>
+          <input
+            id="image"
+            type="text"
+            formControlName="image"
+            placeholder="Enter image URL"
+            required
+          />
+        </div>
+    
+        <button type="submit" class="submit-btn" [disabled]="!courseForm.valid">
+          Add Course
+        </button>
+      </form>
+    </div>
+  

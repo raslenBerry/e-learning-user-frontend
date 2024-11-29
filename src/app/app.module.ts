@@ -30,6 +30,8 @@ import { TeamComponent } from './components/team/team.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MoreInfosComponent } from './components/moreinfos/moreinfos.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { TrainerHeaderComponent } from './components/trainer-header/trainer-header.component';
+import { ManageCoursesTrainerComponent } from './components/manage-courses-trainer/manage-courses-trainer.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { CoursesComponent } from './components/courses/courses.component';
     TeamComponent,
     ContactComponent,
     MoreInfosComponent,
-    CoursesComponent
+    CoursesComponent,
+    TrainerHeaderComponent,
+    ManageCoursesTrainerComponent
   ],
   imports: [
     BrowserModule,
@@ -63,12 +67,13 @@ import { CoursesComponent } from './components/courses/courses.component';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot( {timeOut: 4000,
-      positionClass: 'toast-bottom-right',progressBar:true})
-
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-bottom-right',
+      progressBar: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

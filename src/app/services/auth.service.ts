@@ -34,16 +34,17 @@ export class AuthService {
     }
   }
 
-  // Login method to return Observable and handle token and role management
-  login(email: string, password: string): Observable<{ token: string; role: string }> {
-    return this.http.post<{ token: string; role: string }>(`${this.apiUrl}/api/auth/login`, { email, password })
+  login(email: string, password: string): Observable<{ token: string; role: string; userId: string }> {
+    return this.http.post<{ token: string; role: string; userId: string }>(`${this.apiUrl}/api/auth/login`, { email, password })
       .pipe(
         tap(response => {
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.role);
-          localStorage.setItem('user', JSON.stringify(response));
+          localStorage.setItem('userId', response.userId); // Save userId
+          localStorage.setItem('user', JSON.stringify(response)); // Save complete user info
           this.token = response.token;
           this.roleSubject.next(response.role);
+          this.userSubject.next(response); // Update userSubject
         }),
         catchError(error => {
           console.error('Login error', error);
@@ -51,7 +52,7 @@ export class AuthService {
         })
       );
   }
-
+  
   // Register method to return an Observable
   register(user: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/api/auth/register`, user)
