@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<ng-container *ngIf="userRole === 'TRAINER'">
+    <app-trainer-header class="header"></app-trainer-header>
+  </ng-container>
+  <ng-container *ngIf="userRole === 'STUDENT'">
+    <app-userheader class="header"></app-userheader>
+  </ng-container>
+  
+  <br><br><br>
+  
+  <router-outlet></router-outlet>
+  <ng-container *ngIf="userRole"> 
+  <app-user-footer></app-user-footer>
+  </ng-container>
+  

@@ -6,6 +6,8 @@
   @media (min-width: 1200px) {
     .navmenu {
       padding: 0;
+      --background-color: rgba(0, 0, 0, 0.8)!important;
+
     }
   
     .navmenu ul {
@@ -42,7 +44,10 @@
       white-space: nowrap;
       transition: 0.3s;
       position: relative;
+      text-decoration: none;
     }
+    
+   
   
     .navmenu a i,
     .navmenu a:focus i {
@@ -74,13 +79,13 @@
     .navmenu li:hover>a,
     .navmenu .active,
     .navmenu .active:focus {
-      color: var(--nav-color);
+      color: var(--nav-hover-color);
     }
   
     .navmenu .dropdown ul {
       margin: 0;
       padding: 10px 0;
-      background: var(--nav-dropdown-background-color);
+    --background-color: rgba(0, 0, 0, 0.8);
       display: block;
       position: absolute;
       visibility: hidden;
@@ -260,3 +265,10 @@
     }
   }
   
+
+  .sitename{
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--heading-color);
+    }

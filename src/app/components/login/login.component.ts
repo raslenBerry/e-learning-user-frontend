@@ -92,11 +92,18 @@ export class LoginComponent implements OnInit {
       next: (res: any) => {
         console.log('Google registration successful:', res);
         localStorage.setItem('email', res.user.email);
+        localStorage.setItem('userId', res.user.id);
+        localStorage.setItem('userRole', res.user.role);
+
+
+
+
 
         if (res && res.token) {
           localStorage.setItem('token', res.token);
           if (res.user) {
             localStorage.setItem('user', JSON.stringify(res.user));
+
           }
 
           this.toastr.success('Successfully registered with Google!');
@@ -127,7 +134,7 @@ export class LoginComponent implements OnInit {
       }
     });
 }
-onSubmit(): void {
+/*onSubmit(): void {
   if (this.loginForm.valid) {
     const { email, password } = this.loginForm.value;
 
@@ -139,10 +146,12 @@ onSubmit(): void {
         const token = response.token;
         const userId = response.userId; // Retrieve userId from the response
         localStorage.setItem('token', token);
-        localStorage.setItem('userId', userId); // Save userId in localStorage
+        localStorage.setItem('userId', userId);
+        localStorage.setItem('userRole' , response.role) // Save userId in localStorage
 
         // Handle the role and navigate based on it
         const role = response.role;
+        localStorage.setItem('userRole', role);
         if (role) {
           switch (role) {
             case 'STUDENT':
@@ -180,6 +189,37 @@ onSubmit(): void {
     );
   }
 }
+*/
+
+onSubmit(): void {
+  if (this.loginForm.valid) {
+    const { email, password } = this.loginForm.value;
+
+    this.authService.login(email, password).subscribe((response) => {
+      const role = response.role;
+      this.authService.setUserRole(role); // Update the role in the service
+
+        this.router.navigate(['/home']);
+     
+      this.resetLoginAttempts();
+
+    },
+    (error) => {
+      this.loginAttempts++;
+      const remainingAttempts = 3 - this.loginAttempts;
+
+      if (remainingAttempts > 0) {
+        this.toastr.error(`Login failed! You have ${remainingAttempts} attempts left.`, 'Error');
+      }
+
+      if (this.loginAttempts >= 3) {
+        this.blockLogin();
+      }
+    }
+  );
+  }
+}
+
 
 
   blockLogin(): void {

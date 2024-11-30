@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class TrainerHeaderComponent {
   constructor(private authService:  AuthService) {}
 
-  logOut() {
+  logout() {
     this.authService.logout();
   }
 }

@@ -75,7 +75,7 @@ public getCoursesByIdTrainer(): void {
       const course = {
         ...this.courseForm.value,
         trainerId: trainerId,
-        accepted: 'NON', // Default value
+        accepted: 'Pending', // Default value
       };
 
       this.courseService.addCourse(course).subscribe({
@@ -121,14 +121,13 @@ public getCoursesByIdTrainer(): void {
     this.courseService.getAllCourses().subscribe((courses: Course[]) => {
       this.courses = courses.filter(
         (course) =>
+        course.trainerId === localStorage.getItem('userId') &&
           course.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           course.field.toLowerCase().includes(searchTerm.toLowerCase())
       );
     });
   }
 }
-/*
-  */
 
 
 

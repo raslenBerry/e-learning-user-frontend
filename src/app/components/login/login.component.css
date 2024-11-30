@@ -1,32 +1,70 @@
-  /* Reset password link styling */
-  .reset-password a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.875rem;
-  }
-  
+/* General Styling for Login Page */
+.login-section {
+  margin-top: -5%;
+  padding: 50px 0;
+}
 
-  .reset-password a:hover {
-    text-decoration: underline;
-  }
-  
+/* Styling for Form Elements */
+.form-outline input {
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  /* Style for the login title */
-h2 {
-    font-family: 'Arial', sans-serif; /* Use your preferred font */
-    font-size: 2.5rem;  /* Size of the title */
-    font-weight: bold;  /* Make the title bold */
-    text-align: center;  /* Center-align the title */
-    color: #333;  /* Set color of the title */
-    margin-bottom: 1.5rem;  /* Space below the title */
-    text-transform: uppercase; /* Optional: make the text uppercase */
-    letter-spacing: 1px;  /* Optional: increase space between letters */
-  }
-  
-  
-.google-signin-container {
-  margin: 20px 0;
+.form-outline {
   position: relative;
+  margin-bottom: 20px;
+}
+
+/* Header Styling */
+h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* Login Button */
+.btn-lg {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #4caf50; /* Green */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-lg:hover {
+  background-color: #45a049;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Google Sign-In Button Styling */
+.google-signin-container {
+  position: relative;
+}
+
+.google-btn {
+  display: inline-block;
+  background-color: #4285f4;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.google-btn:hover {
+  background-color: #357ae8;
 }
 
 .loading-spinner {
@@ -39,4 +77,34 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Reset Password Link Styling */
+.reset-password a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.reset-password a:hover {
+  text-decoration: underline;
+}
+
+/* Countdown Message Styling */
+.countdown-message {
+  font-size: 14px;
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 767px) {
+  .google-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+  }
 }

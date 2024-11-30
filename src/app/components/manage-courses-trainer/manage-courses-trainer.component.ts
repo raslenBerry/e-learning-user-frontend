@@ -30,11 +30,12 @@ export class ManageCoursesTrainerComponent {
 
   onSubmit(): void {
     if (this.courseForm.valid) {
-      const trainerId = localStorage.getItem('userId'); // Fetch trainerId from localStorage
+      const trainerId = localStorage.getItem('userId'); 
+      console.log(trainerId);
       const course = {
         ...this.courseForm.value,
         trainerId: trainerId,
-        accepted: 'NON', // Default value
+        accepted: 'Pending', // Default value
       };
 
       this.courseService.addCourse(course).subscribe({
@@ -50,17 +51,7 @@ export class ManageCoursesTrainerComponent {
     }
   }
 
-  UpdateCourse(form: any): void {
-    // Update course logic
-  }
-
-  Delete(courseId: string): void {
-    // Delete course logic
-  }
-
-  SearchCourse(query: string): void {
-    // Search courses based on query
-  }
+ 
 }
 
 

@@ -6,12 +6,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { LoginRegisterComponent } from './components/loginregister/loginregister.component';
 import { StudentInterestComponent } from './components/student-interest/student-interest.component';
 import { MoreInfosComponent } from './components/moreinfos/moreinfos.component';
 import { TrainerHomeComponent } from './components/trainer-home/trainer-home.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { ManageCoursesTrainerComponent } from './components/manage-courses-trainer/manage-courses-trainer.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { OurServicesComponent } from './components/our-services/our-services.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { TeamComponent } from './components/team/team.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -19,15 +22,25 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'reset-password', component: ResetPasswordComponent }, 
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'loginregister', component: LoginRegisterComponent },
   {path: 'interest' , component: StudentInterestComponent},
   {path: 'trainer-home' , component: TrainerHomeComponent},
   {path:'moreinfos',component: MoreInfosComponent},
   {path:'courses',component:CoursesComponent},
   {path:'managecourses',component:ManageCoursesTrainerComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path: 'about-us' , component: AboutUsComponent},
+  {path: 'services' , component: OurServicesComponent},
+  {path: 'contact' , component: ContactComponent},
+  {path: 'team' , component: TeamComponent},
 
-  { path: '**', redirectTo: '/login' } 
+
+
+
+
+
+
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+
+  { path: '**', redirectTo: '/home' } 
 ];
 
 @NgModule({

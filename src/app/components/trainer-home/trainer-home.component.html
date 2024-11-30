@@ -88,18 +88,12 @@
                     <label for="courseField">Field</label>
                     <input type="text" id="courseField" [(ngModel)]="editedCourse.field" name="field" class="form-control" required>
                   </div>
-                  <div class="form-group">
-                    <label for="courseTrainer">Trainer</label>
-                    <input type="text" id="courseTrainer" [(ngModel)]="editedCourse.trainerId" name="trainerId" class="form-control" required>
-                  </div>
+              
                   <div class="form-group">
                     <label for="courseImage">Image</label>
-                    <input type="file" id="courseImage" [(ngModel)]="editedCourse.image" name="image" class="form-control-file">
+                    <input type="text" id="courseImage" [(ngModel)]="editedCourse.image" name="image" class="form-control-file">
                   </div>
-                  <div class="form-group">
-                    <label for="courseAccepted">Accepted</label>
-                    <input type="text" id="courseAccepted" [(ngModel)]="editedCourse.accepted" name="accepted" class="form-control" required>
-                  </div>
+                 
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                   <button type="submit" class="btn btn-success">Update</button>
                 </form>

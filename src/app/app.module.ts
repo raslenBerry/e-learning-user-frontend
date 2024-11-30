@@ -12,7 +12,6 @@ import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { LoginRegisterComponent } from './components/loginregister/loginregister.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TrainerHomeComponent } from './components/trainer-home/trainer-home.component';
@@ -42,7 +41,6 @@ import { ManageCoursesTrainerComponent } from './components/manage-courses-train
     HomeComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
-    LoginRegisterComponent,
     StudentInterestComponent,
     TrainerHomeComponent,
     UserheaderComponent,

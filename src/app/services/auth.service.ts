@@ -13,6 +13,27 @@ export interface GoogleLoginResponse {
   providedIn: 'root',
 })
 export class AuthService {
+
+
+
+
+  private userRoleSubject = new BehaviorSubject<string | null>(localStorage.getItem('userRole'));
+  userRole$ = this.userRoleSubject.asObservable();
+
+  setUserRole(role: string): void {
+    localStorage.setItem('userRole', role);
+    this.userRoleSubject.next(role);
+  }
+
+  getUserRole(): string | null {
+    return localStorage.getItem('userRole');
+  }
+
+  clearUserRole(): void {
+    localStorage.removeItem('userRole');
+    this.userRoleSubject.next(null);
+  }
+
   private readonly apiUrl = 'http://localhost:8080'; // Update with your backend API URL
   private token: string | null = null;
   private roleSubject = new BehaviorSubject<string | null>(null);
@@ -52,7 +73,7 @@ export class AuthService {
         })
       );
   }
-  
+
   // Register method to return an Observable
   register(user: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/api/auth/register`, user)
@@ -64,14 +85,12 @@ export class AuthService {
       );
   }
 
-  // Logout method to clear the token and role from localStorage and BehaviorSubject
   logout(): void {
+    localStorage.clear(); // Clear all stored keys
+    this.clearUserRole();
     this.token = null;
-    localStorage.removeItem('token'); // Remove token from storage
-    this.roleSubject.next(null); // Clear role
-    localStorage.removeItem('role'); // Remove role from storage
-    localStorage.removeItem('user'); // Remove user data from storage
     this.router.navigate(['/login']);
+
   }
 
   // Method to check if the user is logged in by checking token in localStorage
@@ -170,18 +189,18 @@ export class AuthService {
   // Update user
   // Inside AuthService
 
-updateUser(user: any): Observable<any> {
-  const token = this.getToken(); // Retrieve token from localStorage for authentication
+  updateUser(user: any): Observable<any> {
+    const token = this.getToken(); // Retrieve token from localStorage for authentication
 
-  return this.http.put<any>(`${this.apiUrl}/api/users/update`, user, {
-    headers: this.getAuthHeaders() // Add Authorization header with token
-  }).pipe(
-    catchError(error => {
-      console.error('Error updating user:', error);
-      throw error;
-    })
-  );
-}
+    return this.http.put<any>(`${this.apiUrl}/api/users/update`, user, {
+      headers: this.getAuthHeaders() // Add Authorization header with token
+    }).pipe(
+      catchError(error => {
+        console.error('Error updating user:', error);
+        throw error;
+      })
+    );
+  }
 
 
   // Delete user

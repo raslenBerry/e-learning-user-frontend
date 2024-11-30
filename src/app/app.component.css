@@ -1,6 +1,9 @@
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+
+
+
 #preloader {
     position: fixed;
     inset: 0;
@@ -79,6 +82,8 @@
   /*--------------------------------------------------------------
   # Global Page Titles & Breadcrumbs
   --------------------------------------------------------------*/
+
+
   .page-title {
     color: var(--default-color);
     background-color: var(--background-color);
@@ -135,6 +140,7 @@
     padding: 60px 0;
     scroll-margin-top: 92px;
     overflow: clip;
+    
   }
   
   @media (max-width: 1199px) {
@@ -179,4 +185,6 @@
   .section-title p .description-title {
     color: var(--accent-color);
   }
+  
+
   
