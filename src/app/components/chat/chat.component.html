@@ -1,0 +1,23 @@
+<div class="chat-container" [ngClass]="{'collapsed': isCollapsed}">
+  <div class="chat-header" (click)="toggleCollapse()" [attr.title]="isCollapsed ? 'AI Assistant' : ''">
+      <span class="header-title">AI Assistance</span>
+      <span class="collapse-icon">{{ !isCollapsed ? '▼' : '▲' }}</span>
+  </div>
+  <div class="chat-box" *ngIf="!isCollapsed">
+      <div class="messages" #messagesContainer>
+          <div *ngFor="let message of messages"
+              [ngClass]="{'user-message': message.isUser, 'ai-message': !message.isUser}">
+              <img *ngIf="message.isUser" src="../../../assets/images/ai-assistant.png"  alt="User Photo" class="user-photo">
+              <img *ngIf="!message.isUser" src="../../../assets/images/logo.png" alt="AI Icon" class="ai-icon">
+              <p [innerHTML]="message.text"></p>
+          </div>
+      </div>
+      <div class="input-box">
+          <input [(ngModel)]="userPrompt" (keydown)="handleKeyPress($event)"
+              placeholder="Type your message here..." />
+          <button (click)="sendPrompt()" [disabled]="isLoading">
+              <i class="send-icon">➤</i>
+          </button>
+      </div>
+  </div>
+</div>

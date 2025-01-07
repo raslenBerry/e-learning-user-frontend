@@ -1,0 +1,134 @@
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+
+.chat-container.collapsed {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+}
+
+.chat-header {
+  background-color: #00bd56;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: width 0.3s ease;
+}
+
+.chat-container.collapsed .chat-header {
+  width: 40px;
+  padding: 10px 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.chat-container.collapsed .header-title {
+  display: none;
+}
+
+.collapse-icon {
+  font-size: 12px;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.messages {
+  max-height: 283.4px;
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.input-box {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background-color: white;
+}
+
+.input-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.input-box input:focus {
+  border-color: #00bd56;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 189, 86, 0.25);
+}
+
+.input-box button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00bd56;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-box button:disabled {
+  background-color: #ccc;
+}
+
+.send-icon {
+  font-size: 16px;
+}
+
+.user-message {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: #e1ffc7;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.ai-message {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.user-photo,
+.ai-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.messages p {
+  margin-bottom: 0 !important;
+}

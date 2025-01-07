@@ -13,6 +13,12 @@ export class CourseService {
   getAllCourses(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/all`);
   }
+
+  getRecommendedCourses(email: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/recommended/${email}`);
+  }
+
+
   addCourse(course: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/add`, course);
   }

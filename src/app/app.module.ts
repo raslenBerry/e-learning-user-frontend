@@ -31,6 +31,7 @@ import { MoreInfosComponent } from './components/moreinfos/moreinfos.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { TrainerHeaderComponent } from './components/trainer-header/trainer-header.component';
 import { ManageCoursesTrainerComponent } from './components/manage-courses-trainer/manage-courses-trainer.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ManageCoursesTrainerComponent } from './components/manage-courses-train
     MoreInfosComponent,
     CoursesComponent,
     TrainerHeaderComponent,
-    ManageCoursesTrainerComponent
+    ManageCoursesTrainerComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OurServicesComponent } from './components/our-services/our-services.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TeamComponent } from './components/team/team.component';
+import { ChatComponent } from './components/chat/chat.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -31,13 +32,7 @@ const routes: Routes = [
   {path: 'services' , component: OurServicesComponent},
   {path: 'contact' , component: ContactComponent},
   {path: 'team' , component: TeamComponent},
-
-
-
-
-
-
-
+  {path:'chatbot' ,component: ChatComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   { path: '**', redirectTo: '/home' } 

@@ -101,6 +101,7 @@ export class LoginComponent implements OnInit {
 
         if (res && res.token) {
           localStorage.setItem('token', res.token);
+          localStorage.setItem('email', res.user.email);
           if (res.user) {
             localStorage.setItem('user', JSON.stringify(res.user));
 
@@ -194,7 +195,7 @@ export class LoginComponent implements OnInit {
 onSubmit(): void {
   if (this.loginForm.valid) {
     const { email, password } = this.loginForm.value;
-
+    localStorage.setItem('email', email);
     this.authService.login(email, password).subscribe((response) => {
       const role = response.role;
       this.authService.setUserRole(role); // Update the role in the service
