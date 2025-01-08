@@ -10,7 +10,9 @@ export class CoursesComponent implements OnInit {
   courses: any[] = [];
   isLoading = true;
   error: string | null = null;
-
+  selectedCourse: string | null = null;
+ 
+  
   constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
@@ -51,4 +53,9 @@ export class CoursesComponent implements OnInit {
       }
     });
   }
-}
+
+  
+  }
+  
+  
+  

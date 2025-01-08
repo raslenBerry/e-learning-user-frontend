@@ -49,8 +49,16 @@
           </thead>
           <tbody>
             <tr *ngFor="let course of courses">
-              <td><img [src]="course.image" alt="Course Image" style="max-width: 100px; max-height: 100px;"></td>
-              <td>{{ course.name }}</td>
+              <td>
+                <img [src]="course.image" alt="Course Image" style="max-width: 100px; max-height: 100px;">
+              </td>
+              <td>
+                <a [routerLink]="['/managechapter', course.courseId]" class="course-link">
+                  {{ course.name }}
+                </a>
+                
+              </td>
+              
               <td>{{ course.description }}</td>
               <td>{{ course.field }}</td>
               <td>{{ course.accepted }}</td>
@@ -64,7 +72,7 @@
               </td>
             </tr>
           </tbody>
-        </table>
+                  </table>
   
         <!-- Modal for updating course -->
         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
@@ -105,4 +113,3 @@
     </div>
   </div>
     
-

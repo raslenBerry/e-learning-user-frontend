@@ -208,3 +208,16 @@
     background: color-mix(in srgb, var(--accent-color), transparent 20%);
   }
   
+  .chapters-container {
+    margin-top: 30px;
+  }
+  
+  .chapters-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .chapters-list li {
+    margin-bottom: 10px;
+  }
+  

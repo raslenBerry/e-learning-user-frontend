@@ -1,0 +1,16 @@
+<br><br><div class="generate-course">
+    <h2>Generate Course</h2>
+    <textarea
+      [(ngModel)]="courseDescription"
+      rows="5"
+      placeholder="Enter the course description here..."
+    ></textarea>
+    <button [disabled]="!courseDescription || loading" (click)="generateCourse()">
+      {{ loading ? 'Generating...' : 'Generate Course' }}
+    </button>
+    <div *ngIf="generatedCourse" class="generated-content">
+      <h3>Generated Course:</h3>
+      <div class="generated-text" [innerHTML]="generatedCourseHTML"></div> <!-- Use innerHTML binding -->
+      <button (click)="downloadPdf()">Download as PDF</button>
+    </div>
+</div>

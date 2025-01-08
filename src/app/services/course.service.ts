@@ -30,4 +30,10 @@ export class CourseService {
   deleteCourse(courseId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/delete/${courseId}`);
   }
+
+  getChaptersByCourseId(courseId: string): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8080/api/chapters/course/${courseId}`);
+  }
+  
+  
 }

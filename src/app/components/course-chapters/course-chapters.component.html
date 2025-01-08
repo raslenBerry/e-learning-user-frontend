@@ -1,0 +1,31 @@
+<br><br><br>
+
+<!-- Chapters List -->
+<h3>Chapters for Course: {{ selectedCourseId }}</h3>
+<ul class="chapter-list">
+  <li *ngFor="let chapter of chapters; let i = index">
+    <strong>{{ i + 1 }}.</strong> {{ chapter.name }} - {{ chapter.description }}
+    <button class="btn btn-link" (click)="openModal(chapter)">[View Content]</button>
+  </li>
+</ul>
+
+<p *ngIf="chapters.length === 0 && !isLoadingChapters">No chapters found.</p>
+<p *ngIf="isLoadingChapters">Loading...</p>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isModalOpen" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedChapter?.name }}</h2>
+    <p>{{ selectedChapter?.description }}</p>
+    <div *ngIf="!isIframeLoaded" class="loader">Loading content...</div>
+    <iframe *ngIf="selectedChapter?.content"
+      [src]="selectedChapter.content | safeUrl"
+      width="100%"
+      height="400px"
+      frameborder="0"
+      allowfullscreen
+      (load)="onIframeLoad()">
+    </iframe>
+  </div>
+</div>

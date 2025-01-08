@@ -32,6 +32,13 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { TrainerHeaderComponent } from './components/trainer-header/trainer-header.component';
 import { ManageCoursesTrainerComponent } from './components/manage-courses-trainer/manage-courses-trainer.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { ManagechaptersComponent } from './components/managechapters/managechapters.component';
+import { SafeUrlPipe } from './components/managechapters/safe-url.pipe';
+import { CourseChaptersComponent } from './components/course-chapters/course-chapters.component';
+import { QuizzComponent } from './components/quizz/quizz.component';
+import { GenerateCourseComponent } from './generate-course/generate-course.component';
+
+
 
 @NgModule({
   declarations: [
@@ -59,7 +66,12 @@ import { ChatComponent } from './components/chat/chat.component';
     CoursesComponent,
     TrainerHeaderComponent,
     ManageCoursesTrainerComponent,
-    ChatComponent
+    ChatComponent,
+    ManagechaptersComponent,
+    SafeUrlPipe,
+    CourseChaptersComponent,
+    QuizzComponent,
+    GenerateCourseComponent
   ],
   imports: [
     BrowserModule,

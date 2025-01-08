@@ -16,6 +16,10 @@ import { OurServicesComponent } from './components/our-services/our-services.com
 import { ContactComponent } from './components/contact/contact.component';
 import { TeamComponent } from './components/team/team.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { ManagechaptersComponent } from './components/managechapters/managechapters.component';
+import { CourseChaptersComponent } from './components/course-chapters/course-chapters.component';
+import { GenerateCourseComponent } from './generate-course/generate-course.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -33,6 +37,9 @@ const routes: Routes = [
   {path: 'contact' , component: ContactComponent},
   {path: 'team' , component: TeamComponent},
   {path:'chatbot' ,component: ChatComponent},
+  {path: 'generatecourse' , component: GenerateCourseComponent},
+  {path:'coursechapters/:courseId',component:CourseChaptersComponent},
+  { path: 'managechapter/:courseId', component: ManagechaptersComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   { path: '**', redirectTo: '/home' } 

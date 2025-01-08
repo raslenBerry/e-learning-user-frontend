@@ -24,24 +24,26 @@
   
           <div class="row">
             <div *ngFor="let course of courses" class="col-lg-4 col-md-6 courses-item isotope-item filter-app">
-              <img [src]="course.image" class="img-fluid" alt="xxxxx">
+              <img [src]="course.image" class="img-fluid" alt="Course Image"  [routerLink]="['/coursechapters', course.courseId]" style="cursor: pointer;">
               <div class="courses-info">
                 <h4>{{ course.name }}</h4>
                 <p>{{ course.description }}</p>
-                <a [href]="course.image" title="Preview" data-gallery="courses-gallery-app" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
+                <a [routerLink]="['/coursechapters', course.courseId]" class="course-link" style="cursor: pointer;">
+                  <i class="bi bi-link-45deg"></i> View Chapters
                 </a>
-                <a href="courses-details.html" title="More Details" class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+                
               </div>
+    
             </div>
+            
           </div>
+          
   
         </div><!-- End Courses Container -->
   
       </div>
   
     </div>
-  
+   
+    
   </section><!-- /Courses Section -->

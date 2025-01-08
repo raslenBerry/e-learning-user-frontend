@@ -1,0 +1,70 @@
+<!-- HTML (Translated to English) -->
+ <br><br><br>
+<div class="chapter-container">
+    <h2>Manage Chapters for Course </h2>
+  
+    <!-- Chapter Addition Form -->
+    <form [formGroup]="chapterForm" (ngSubmit)="addChapter()" class="chapter-form">
+      <div class="form-group">
+        <label for="name">Chapter Name:</label>
+        <input id="name" type="text" formControlName="name" class="form-control" />
+        <small *ngIf="chapterForm.get('name')?.invalid && chapterForm.get('name')?.touched">
+          This field is required.
+        </small>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+        <small *ngIf="chapterForm.get('description')?.invalid && chapterForm.get('description')?.touched">
+          Description must be less than 200 characters.
+        </small>
+      </div>
+  
+      <div class="form-group">
+        <label for="content">Content Link (PDF/Video):</label>
+        <input id="content" type="url" formControlName="content" class="form-control" />
+        <small *ngIf="chapterForm.get('content')?.invalid && chapterForm.get('content')?.touched">
+          A valid link is required.
+        </small>
+      </div>
+  
+      <button type="submit" [disabled]="chapterForm.invalid" class="btn btn-primary">Add</button>
+    </form>
+  
+    <hr />
+  
+    <!-- Chapters List -->
+    <h3>Existing Chapters</h3>
+    <ul class="chapter-list">
+      <li *ngFor="let chapter of chapters; let i = index">
+        <strong>{{ i + 1 }}.</strong> {{ chapter.name }} - {{ chapter.description }}
+        <button class="btn btn-link" (click)="openModal(chapter)">[View Content]</button>
+      </li>
+    </ul>
+  
+    <p *ngIf="chapters.length === 0 && !isLoading">No chapters found.</p>
+    <p *ngIf="isLoading">Loading...</p>
+ 
+    <!-- Modal -->
+    <div class="modal" [class.show]="isModalOpen" (click)="closeModal()">
+        
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>{{ selectedChapter?.name }}</h2>
+        <p>{{ selectedChapter?.description }}</p>
+        <div *ngIf="!isIframeLoaded" class="loader"></div>
+<iframe
+  *ngIf="selectedChapter?.content"
+  [src]="selectedChapter.content | safeUrl"
+  width="100%"
+  height="400px"
+  frameborder="0"
+  allowfullscreen
+  (load)="onIframeLoad()"
+></iframe>
+
+      </div>
+    </div>
+  </div>
+  
